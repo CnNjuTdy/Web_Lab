@@ -48,7 +48,7 @@ function draw_line_chart(container) {
         });
     });
 }
-function draw_bar_chart(container){
+function draw_bar_chart(container) {
     $(function () {
         $(container).highcharts({
             chart: {
@@ -113,8 +113,7 @@ function draw_bar_chart(container){
         });
     });
 }
-
-function draw_pie_chart(container){
+function draw_pie_chart(container) {
     $(function () {
         $(container).highcharts({
             chart: {
@@ -145,19 +144,25 @@ function draw_pie_chart(container){
                 type: 'pie',
                 name: 'Browser share',
                 data: [
-                    ['Firefox',   45.0],
-                    ['IE',       26.8],
+                    ['Firefox', 45.0],
+                    ['IE', 26.8],
                     {
                         name: 'Chrome',
                         y: 12.8,
                         sliced: true,
                         selected: true
                     },
-                    ['Safari',    8.5],
-                    ['Opera',     6.2],
-                    ['Others',   0.7]
+                    ['Safari', 8.5],
+                    ['Opera', 6.2],
+                    ['Others', 0.7]
                 ]
             }]
         });
     });
+}
+function get_date() {
+    var now = new Date();
+    var result = "20";
+    result = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
+    return result;
 }
