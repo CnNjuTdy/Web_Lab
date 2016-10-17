@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>无标题文档</title>
+    <script>
+        function check(){
+            if(!document.getElementById("aaa").checked){alert("你必须同意协议");return false}
+            return true
+        }
+    </script>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+    <div style="border:1px solid #ace;width:800px;height:400px;margin:5px auto;padding:5px">用户协议</div>
+    <div style="width:800px;margin:5px auto;text-align:right">
+        <p>
+            <label>
+                <input type="checkbox" name="aaa" id="aaa" />
+                我同意</label>
+        </p>
+        <p>
+            <input type="submit" name="button" id="button" value="注册" onclick="return check()" />
+        </p>
+    </div>
+</form>
+</body>
+</html>

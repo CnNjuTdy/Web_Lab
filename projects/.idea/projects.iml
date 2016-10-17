@@ -15,5 +15,10 @@
     <orderEntry type="library" name="bootstrap-datetimepicker" level="application" />
     <orderEntry type="library" name="bootstrap-datepicker" level="application" />
     <orderEntry type="library" name="bootstrap-datepicker.zh-CN" level="application" />
+    <orderEntry type="library" name="bootstrap-datetimepicker" level="application" />
+    <orderEntry type="library" name="zh-cn" level="application" />
+    <orderEntry type="library" name="moment" level="application" />
+    <orderEntry type="library" name="zh" level="application" />
+    <orderEntry type="library" name="fileinput" level="application" />
   </component>
 </module>
