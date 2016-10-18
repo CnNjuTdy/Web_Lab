@@ -5,7 +5,7 @@ $(function () {
     //时间格式设置
     $(".form_datetime").datetimepicker({format: "YYYY-MM-DD hh:mm"});
     //初始化文件控制器
-    initFileInput("activity_pic","/projects/demo1common/img/activity_pic");
+    initFileInput("activity_pic","/projects/demo1/common/img/activity_pic");
 });
 
 function isAgree(){
