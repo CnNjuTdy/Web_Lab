@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{bootstrap-datetimepicker, fileinput, flat-ui, highcharts, jquery, moment, video, zh, zh-cn}" />
+    <file url="PROJECT" libraries="{bootstrap-datetimepicker, fileinput, flat-ui, highcharts, jquery, video, zh, zh-cn}" />
   </component>
 </project>
