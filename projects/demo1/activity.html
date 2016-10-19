@@ -16,6 +16,8 @@
           rel="stylesheet">
 
     <link href="http://cdn.bootcss.com/bootstrap-fileinput/4.3.5/css/fileinput.min.css" rel="stylesheet">
+
+    <link href="http://cdn.bootcss.com/jquery-confirm/2.5.1/jquery-confirm.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -149,10 +151,10 @@
                                     <label class="checkbox">
                                         <input type="checkbox" value="" id="isAgree" data-toggle="checkbox"
                                                checked onclick="isAgree()">
-                                        我已阅读并同意《<a data-toggle="modal" data-target="#myModal">WeSport活动发起协议</a>》
+                                        我已阅读并同意《<a data-toggle="modal" data-target="#protocol">WeSport活动发起协议</a>》
                                     </label>
                                     <!--协议内容-->
-                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+                                    <div class="modal fade" id="protocol" tabindex="-1" role="dialog"
                                          aria-labelledby="myModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -512,26 +514,75 @@
                                 </div>
                                 <table class="table">
                                     <thead>
-                                        <tr>
-                                            <th class="text-center">活动名称</th>
-                                            <th class="text-center">活动描述</th>
-                                            <th class="text-center">活动状态</th>
-                                            <th class="text-center">活动名次</th>
-                                        </tr>
+                                    <tr>
+                                        <th class="text-center">活动名称</th>
+                                        <th class="text-center">活动描述</th>
+                                        <th class="text-center">活动状态</th>
+                                        <th class="text-center">活动名次</th>
+                                    </tr>
                                     </thead>
                                     <tbody class="text-center">
                                     <tr>
-                                        <td>第一届滑板鞋大赛</td>
-                                        <td>南京市鼓楼区第一届滑板鞋大赛</td>
+                                        <td>南京马拉松</td>
+                                        <td>南京市马拉松比赛</td>
+                                        <td>已结束</td>
+                                        <td>无名次</td>
+                                    </tr>
+                                    <tr>
+                                        <td>第一届滑板大赛</td>
+                                        <td>南京市鼓楼区第一届滑板大赛</td>
                                         <td>已结束</td>
                                         <td>第<strong>2</strong>名</td>
                                     </tr>
                                     <tr>
-                                        <td>第二届滑板鞋大赛</td>
-                                        <td>南京市鼓楼区第二届滑板鞋大赛</td>
+                                        <td>第二届滑板大赛</td>
+                                        <td>南京市鼓楼区第二届滑板大赛</td>
                                         <td>正在进行中</td>
-                                        <td disabled=""></td>
+                                        <td>暂无</td>
                                     </tr>
+                                    <tr>
+                                        <td>第三届滑板大赛</td>
+                                        <td>南京市鼓楼区第三届滑板大赛</td>
+                                        <td>正在进行中</td>
+                                        <td>暂无</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel panel-success">
+                                <div class="panel-heading text-center">
+                                    我发起的活动
+                                </div>
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="text-center">活动名称</th>
+                                        <th class="text-center">活动状态</th>
+                                        <th class="text-center">操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="text-center">
+                                    <tr>
+                                        <td>第一届滑板大赛</td>
+                                        <td><strong>已</strong>结束/<strong>已</strong>录入名次</td>
+                                        <td><a href ="javascript:void(0);"><em style="text-decoration: underline">编辑活动</em></a>
+                                            <a href ="javascript:void(0);"><em style="text-decoration: underline">录入名次</em></a>
+                                            <a href ="javascript:void(0);"><em style="text-decoration: underline">详情</em></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>第二届滑板大赛</td>
+                                        <td><strong>未</strong>结束/<strong>未</strong>录入名次</td>
+                                        <td><a href ="javascript:void(0);"><em style="text-decoration: underline">编辑活动</em></a>
+                                            <a href ="javascript:void(0);"><em style="text-decoration: underline">录入名次</em></a>
+                                            <a href ="javascript:void(0);"><em style="text-decoration: underline">详情</em></a>
+                                        </td>
+                                    </tr>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -557,6 +608,8 @@
 <script src="http://cdn.bootcss.com/bootstrap-fileinput/4.3.5/js/locales/zh.min.js"></script>
 <!--图表-->
 <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+<!--确认框-->
+<script src="http://cdn.bootcss.com/jquery-confirm/2.5.1/jquery-confirm.min.js"></script>
 <!--自制-->
 <script src="common/js/util.js"></script>
 <script src="common/js/activity.js"></script>

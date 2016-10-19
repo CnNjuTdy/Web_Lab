@@ -8,6 +8,21 @@ $(function () {
     initFileInput("activity_pic","/projects/demo1/common/img/activity_pic");
 });
 
+function confirmEdit(item) {
+    var activityNameNade = item.previousElementSibling
+    $.confirm({
+        animationBounce: 1.5,
+        animationSpeed: 1000,
+        title: '确认编辑',
+        content: '确认编辑活动'+'"'+userName+'"'+"吗？",
+        confirm: function(){
+            $.alert('更改已保存');
+        },
+        cancel: function(){
+        }
+    });
+}
+
 function isAgree(){
     var is = document.getElementById("isAgree");
     var bt = document.getElementById("addActivity");
