@@ -36,13 +36,13 @@ var getChart = (function () {
     });
 });
 var draw = (function () {
-    
+    //根据数据渲染页面
 });
 
 getUserInfo();
 getChart();
-//draw();
-alert(JSON.stringify(dataChart));
+draw();
+// alert(JSON.stringify(dataChart));
 
 
 

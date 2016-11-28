@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
 class IndexController extends Controller{
-    //获取userinfo数据
+    //获取userinfo数据，完成
     /**
      * @return array
      */
@@ -30,18 +30,25 @@ class IndexController extends Controller{
 
         return array("userInfo"=>$userInfo,"sportInfo"=>$sportInfo);
     }
-    //获取chart数据
+    //获取chart数据，完成
     public function getChart(){
+        $username = Input::get("username");
         $chartDB = DB::table('sport')
             ->select('steps')
             ->where('date',my_getDate())
             ->get();
-
         $chart = [];
-        foreach ($chartDB as $step => $value){
-            array_push($chart,$value);
+        for($i = 0;$i<count($chartDB);$i++){
+            $chart[$i] = intval($chartDB[$i]->steps,10);
         }
-        return $chart;
+
+        $step = DB::table('sport')
+            ->select('steps')
+            ->where('user_name', $username)
+            ->where('date',my_getDate())
+            ->get();
+        $step = intval($step[0]->steps,10);
+        return array("all_data"=>$chart,"your_data"=>$step);
     }
     //每日必做的勾选,选做
     public function done(){

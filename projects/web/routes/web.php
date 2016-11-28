@@ -11,10 +11,11 @@
 |
 */
 Route::get('', function(){
-    return redirect()->route('index');
+    return view("index");
 });
 
 Route::get('/activity', "ActivityController@index");
+
 Route::group(['prefix' => 'index'], function () {
     Route::get('', function () {
         return view("index");
