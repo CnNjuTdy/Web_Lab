@@ -174,4 +174,8 @@
 @endsection
 @section("script")
     <script src="common/js/sport.js"></script>
+    <script>
+        var date = get_date();
+        document.getElementById("dateStr").innerHTML =date;
+    </script>
 @endsection

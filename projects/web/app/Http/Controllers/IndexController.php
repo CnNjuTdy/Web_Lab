@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Input;
 
 class IndexController extends Controller{
     //获取userinfo数据
+    /**
+     * @return array
+     */
     public function getUserInfo(){
         $username = Input::get("username");
 
