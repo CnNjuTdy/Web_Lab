@@ -9,7 +9,7 @@
                      class="img-circle img-responsive">
             </div>
             <div class="row text-center">
-                <a href="setting">
+                <a href="profile">
                     <h6>炫酷滑板鞋</h6>
                 </a>
             </div>
@@ -62,7 +62,7 @@
             </div>
             <div class="panel panel-success">
                 <div class="panel-body">
-                    在刚刚结束的南京市鼓楼区滑板活动中，你表现优异，获得了第二名！
+                    你参与南京市鼓楼区滑板活动即将开始！
                 </div>
             </div>
             <div class="panel panel-success">

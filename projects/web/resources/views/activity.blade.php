@@ -474,7 +474,6 @@
                                         <th class="text-center">活动名称</th>
                                         <th class="text-center">活动描述</th>
                                         <th class="text-center">活动状态</th>
-                                        <th class="text-center">活动名次</th>
                                     </tr>
                                     </thead>
                                     <tbody class="text-center">
@@ -482,25 +481,21 @@
                                         <td>南京马拉松</td>
                                         <td>南京市马拉松比赛</td>
                                         <td>已结束</td>
-                                        <td>无名次</td>
                                     </tr>
                                     <tr>
                                         <td>第一届滑板大赛</td>
                                         <td>南京市鼓楼区第一届滑板大赛</td>
                                         <td>已结束</td>
-                                        <td>第<strong>2</strong>名</td>
                                     </tr>
                                     <tr>
                                         <td>第二届滑板大赛</td>
                                         <td>南京市鼓楼区第二届滑板大赛</td>
                                         <td>正在进行中</td>
-                                        <td>暂无</td>
                                     </tr>
                                     <tr>
                                         <td>第三届滑板大赛</td>
                                         <td>南京市鼓楼区第三届滑板大赛</td>
                                         <td>正在进行中</td>
-                                        <td>暂无</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -527,8 +522,6 @@
                                         <td><strong>已</strong>结束/<strong>已</strong>录入名次</td>
                                         <td><a href="javascript:void(0);"><em
                                                         style="text-decoration: underline">编辑活动</em></a>
-                                            <a href="javascript:void(0);"><em
-                                                        style="text-decoration: underline">录入名次</em></a>
                                             <a href="javascript:void(0);"><em style="text-decoration: underline">详情</em></a>
                                         </td>
                                     </tr>
@@ -537,8 +530,6 @@
                                         <td><strong>未</strong>结束/<strong>未</strong>录入名次</td>
                                         <td><a href="javascript:void(0);"><em
                                                         style="text-decoration: underline">编辑活动</em></a>
-                                            <a href="javascript:void(0);"><em
-                                                        style="text-decoration: underline">录入名次</em></a>
                                             <a href="javascript:void(0);"><em style="text-decoration: underline">详情</em></a>
                                         </td>
                                     </tr>

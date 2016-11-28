@@ -10,23 +10,24 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-Route::get('/activity', function () {
-    return view('activity');
+Route::get('', function(){
+    return redirect()->route('index');
 });
-Route::get('/', "IndexController@index");
-Route::get('/index',"IndexController@index");
 
-Route::get('/login', "LoginController@index");
-Route::get('/message', function () {
-    return view('message');
+Route::get('/activity', "ActivityController@index");
+Route::group(['prefix' => 'index'], function () {
+    Route::get('', function () {
+        return view("index");
+    });
+    Route::get('get_user_info', "IndexController@getUserInfo");
+    Route::get('get_chart', "IndexController@getChart");
 });
-Route::get('/people', function () {
-    return view('people');
-});
-Route::get('/setting', function () {
-    return view('setting');
-});
-Route::get('/sport', function () {
-    return view('sport');
-});
-Route::post('/login', "LoginController@login");
+
+Route::get('/message', "MessageController@index");
+Route::get('/moments', "MomentsController@index");
+Route::get('/people', "PeopleController@index");
+Route::get('/profile/{username?}',"ProfileController@index");
+Route::get('/sport',"SportController@index");
+Route::get('/login',"MyLoginController@index");
+
+Route::post('/login',"MyLoginController@login");

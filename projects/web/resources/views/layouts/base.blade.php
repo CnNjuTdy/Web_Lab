@@ -26,10 +26,11 @@
                         <li><a href="index">首页</a></li>
                         <li><a href="sport">运动</a></li>
                         <li><a href="activity">活动</a></li>
-                        <li><a href="people">圈子</a></li>
+                        <li><a href="people">好友</a></li>
+                        <li><a href="moments">圈子</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="setting"><span class="fui-user"></span></a></li>
+                        <li><a href="profile"><span class="fui-user"></span></a></li>
                         <li><a href="message"><span class="fui-info-circle"></span></a></li>
                     </ul>
                 </div>
@@ -45,6 +46,9 @@
 
 <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
 <script src="common/js/util.js"></script>
+<script>
+    test_user();
+</script>
 @yield('script')
 </body>
 </html>

@@ -16,3 +16,7 @@ function delete_my(item) {
         }
     });
 }
+function viewOthers(item) {
+    var username = item.innerHTML
+    window.location.href = "profile/"+username;
+}

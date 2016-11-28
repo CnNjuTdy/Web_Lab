@@ -22,24 +22,26 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-12">
-                            {!! Form::open()!!}
                             <div class="form-group col-md-12">
-                                {!! Form::text("username",null,["class"=>"form-control","placeholder"=>"昵称","value"=>""]) !!}
+                                <input type="text" value="" placeholder="昵称"
+                                       class="form-control" id="username">
                             </div>
                             <div class="form-group col-md-12">
-                                {!! Form::password("userpasswd",["class"=>"form-control","placeholder"=>"密码","value"=>""]) !!}
+                                <input type="password" value="" placeholder="密码"
+                                       class="form-control" id="userpasswd">
                             </div>
-                            <div class="form-group col-md-10 col-md-offset-1">
-                                {!! Form::submit("确认登录",["class"=>"btn btn-block btn-primary"]) !!}
-                            </div>
-                            {!! Form::close()!!}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 col-md-offset-1">
+                            <button type="button" class="btn btn-block btn-primary" onclick="login()">确认登录</button>
                         </div>
                     </div>
                     <div class="row" style="margin-top: 10px">
                         <div class="col-md-6 text-center">
                             <a href="">申请账号</a>
                         </div>
-                        <div class="col-md-6 text-center ">
+                        <div class="col-md-6 text-center">
                             <a class="text-danger" href="">忘记密码?</a>
                         </div>
                     </div>
@@ -54,5 +56,30 @@
 <script src="http://cdn.bootcss.com/flat-ui/2.3.0/js/flat-ui.min.js"></script>
 <script src="common/js/application.js"></script>
 <script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+<script src="common/js/util.js"></script>
+
+<script>
+    function login() {
+        var username = $("input[id=username]").val();
+        var passwd = $("input[id=userpasswd]").val();
+        $.ajax({
+            url: '/login',
+            type: 'post',
+            data: {username: username, userpasswd: passwd},
+            success: function (data) {
+                if (data["userValid"] == 1) {
+                    setCookie("WeSport_username", data["username"])
+                    window.location.href = "index";
+                } else {
+
+                }
+            },
+            error: function (data) {
+                console.log(JSON.stringify(data));
+                console.log("error");
+            }
+        });
+    }
+</script>
 </body>
 </html>
