@@ -2,18 +2,20 @@
  * Created by Tonndiyee on 2016/10/15.
  */
 //
-var dataGoal = [];
+var dataGoals = [];
 var dataCalories = [];
+var dataRank = [];
+var dataHealth = [];
 
-var getGoal = (function () {
+var getGoals = (function () {
     var username = getCookie("WeSport_username")
     $.ajax({
-        url: '/sport/get_goal',
+        url: '/sport/get_goals',
         async: false,
         type: 'get',
         data: {username: username},
         success: function (data) {
-            dataGoal = data;
+            dataGoals = data;
         },
         error: function (data) {
             console.log(JSON.stringify(data));
@@ -37,11 +39,49 @@ var getCalories = (function () {
         }
     });
 });
+var getRank = (function () {
+    var username = getCookie("WeSport_username")
+    $.ajax({
+        url: '/sport/get_rank',
+        async: false,
+        type: 'get',
+        data: {username: username},
+        success: function (data) {
+            dataRank = data;
+        },
+        error: function (data) {
+            console.log(JSON.stringify(data));
+            console.log("error");
+        }
+    });
+});
+var getHealth = (function () {
+        var username = getCookie("WeSport_username")
+        $.ajax({
+            url: '/sport/get_health',
+            async: false,
+            type: 'get',
+            data: {username: username},
+            success: function (data) {
+                dataHealth = data;
+            },
+            error: function (data) {
+                console.log(JSON.stringify(data));
+                console.log("error");
+            }
+        });
+    });
 var draw = (function () {
 
 })
 
+getGoals();
+getCalories();
+getRank();
+getHealth();
+
 draw();
+// alert(JSON.stringify(dataHealth));
 //绘图表
 draw_line_chart('#lineChart');
 draw_pie_chart('#pieChart');

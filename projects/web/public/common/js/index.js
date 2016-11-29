@@ -42,7 +42,7 @@ var draw = (function () {
 getUserInfo();
 getChart();
 draw();
-// alert(JSON.stringify(dataChart));
+// alert(JSON.stringify(dataUserInfo));
 
 
 

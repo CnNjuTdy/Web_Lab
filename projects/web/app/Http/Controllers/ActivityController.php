@@ -9,11 +9,33 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
+
 class ActivityController extends Controller{
-    //根据username初始化activity的界面，必做
-    public function index(){
-        return view("activity");
+    //参加活动部分数据,完成
+    public function getJoin(){
+        $allDB = DB::table('activity')
+            ->where("activity_state","0")
+            ->get();
+        return $allDB;
     }
+    //我的活动部分数据,完成
+    public function getMy(){
+        $username = Input::get("username");
+
+        $myJoinDB = DB::table('activity')
+            ->join('activity_participant','activity_participant.activity_id','=','activity.activity_id')
+            ->where("activity_participant.participant_name",$username)
+            ->get();
+
+        $myOrgnizeDB = DB::table('activity')
+            ->where("activity.activity_orgnizer",$username)
+            ->get();
+        return array("myJoin"=>$myJoinDB,"myOrgnize"=>$myOrgnizeDB);
+    }
+
+
     //添加活动 必做
     public function createActivity(){
 
