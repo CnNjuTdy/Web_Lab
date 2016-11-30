@@ -61,7 +61,6 @@ class SportController extends Controller{
             ->sum("calories");
         return array("all_steps"=>intval($stepDB),"all_calories"=>intval($caloriesDB));
     }
-
     //获取第三部分数据，完成
     public function getRank(){
         $username = Input::get("username");
@@ -76,8 +75,7 @@ class SportController extends Controller{
         return $stepsAll;
 
     }
-
-    //获取第四部分数据
+    //获取第四部分数据，完成
     public function getHealth(){
         $username = Input::get("username");
 
@@ -94,9 +92,25 @@ class SportController extends Controller{
 
         return array("newHealth"=>$healthNewDB[0],"allHealth"=>$healthALLDB);
     }
-    //保存录入身体情况，必做
-    public function storeInfo(){
-
+    //保存录入身体情况，
+    public function inputHealth(){
+        $username = Input::get("username");
+        $height = Input::get("height");
+        $weight = Input::get("weight");
+        $already = DB::table('sport')
+            ->where('user_name', $username)
+            ->where('date',my_getDate())
+            ->get();
+        if(count($already)==0){
+            DB::table('sport')->insert(
+                ['user_name' => $username, "date" => my_getDate(),"height"=>$height,"weight"=>$weight]
+            );
+        }else{
+            DB::table('sport')
+                ->where('user_name', $username)
+                ->where('date',my_getDate())
+                ->update(["height"=>$height,"weight"=>$weight]);
+        }
     }
 
 }

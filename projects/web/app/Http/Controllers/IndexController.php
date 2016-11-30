@@ -28,7 +28,7 @@ class IndexController extends Controller{
             ->where('date',my_getDate())
             ->get();
 
-        return array("userInfo"=>$userInfo,"sportInfo"=>$sportInfo);
+        return array("userInfo"=>$userInfo[0],"sportInfo"=>$sportInfo[0]);
     }
     //获取chart数据，完成
     public function getChart(){
@@ -49,13 +49,5 @@ class IndexController extends Controller{
             ->get();
         $step = intval($step[0]->steps,10);
         return array("all_data"=>$chart,"your_data"=>$step);
-    }
-    //每日必做的勾选,选做
-    public function done(){
-
-    }
-    //每日必做的取消勾选,选做
-    public function cancel(){
-
     }
 }

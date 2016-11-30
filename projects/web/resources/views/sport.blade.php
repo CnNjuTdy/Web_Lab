@@ -107,19 +107,19 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-12">
-                                            <input type="text" value="" placeholder="身高(cm)/哼,如实填写哦！"
+                                            <input id="height" type="text" value="" placeholder="身高(cm)/哼,如实填写哦！"
                                                    class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-12">
-                                            <input type="text" value="" placeholder="体重(kg)/看看你,又胖了！"
+                                            <input id="weight" type="text" value="" placeholder="体重(kg)/看看你,又胖了！"
                                                    class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-10 col-md-offset-1">
-                                            <button class="btn btn-block btn-lg btn-primary">保存录入</button>
+                                            <button class="btn btn-block btn-lg btn-primary" onclick="enterHealth()">保存录入</button>
                                         </div>
                                     </div>
                                 </div>
@@ -171,11 +171,45 @@
             </div>
         </div>
     </div>
+
 @endsection
 @section("script")
     <script src="common/js/sport.js"></script>
     <script>
         var date = get_date();
         document.getElementById("dateStr").innerHTML =date;
+
+        function enterHealth() {
+            var height = $("input[id=height]").val();
+            var weight = $("input[id=weight]").val();
+            if(height==""){
+                alert("还没有填写身高！");
+                return ;
+            }else if(weight==""){
+                alert("还没有填写体重！");
+                return ;
+            }
+            if(isDouble(height)==0){
+                alert("身高必须是大于0的数字哦！")
+                return;
+            } else if(isDouble(weight)==0){
+                alert("体重必须是大于0的数字哦！")
+                return;
+            }
+            var username = getCookie("WeSport_username")
+            $.ajax({
+                url: '/sport/input_health',
+                type: 'post',
+                data: {username: username,height:height,weight:weight},
+                success: function (data) {
+                    //界面变化
+                    alert("录入成功！")
+                },
+                error: function (data) {
+                    console.log(JSON.stringify(data));
+                    console.log("error");
+                }
+            });
+        }
     </script>
 @endsection

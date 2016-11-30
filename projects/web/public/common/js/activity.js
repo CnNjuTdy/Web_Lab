@@ -98,4 +98,4 @@ getMyData();
 getJoinData();
 // draw();
 
-alert(JSON.stringify(joinData))
+// alert(JSON.stringify(joinData))

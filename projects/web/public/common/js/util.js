@@ -1,3 +1,22 @@
+var caloriesLike = {
+    "calories":[1000,10000],
+    "like":["鸡蛋","巧克力","脂肪"],
+    "unit":["个","克","斤"],
+    "num":[76,5.86,3850]
+};
+var stepsLike = {
+    "dis":[10000,200000],
+    "like":["标准操场","北京三环路","北京到天津"],
+    "unit":["圈","圈","次"],
+    "num":[400,32000,121700]
+};
+var timeLike = {
+    "time":[1000,10000],
+    "like":["晚饭","手抄孙子兵法","手抄史记"],
+    "unit":["顿","次","次"],
+    "num":[30,150,10000]
+};
+
 function draw_line_chart(container) {
     $(function () {
         $(container).highcharts({
@@ -198,3 +217,60 @@ function test_user() {
     }
 
 }
+function isDouble(str) {
+    var match = str.match(/^(([0-9]+\\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\\.[0-9]+)|([0-9]*[1-9][0-9]*))$/);   //正浮点数
+    if(match) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+function isNum(str) {
+    var match = str.match(/^[0-9]*[1-9][0-9]*$/);   //正整数
+    if(match) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+function getCaloriesLike(cal) {
+    var index = 0;
+    if(cal<caloriesLike.calories[0]) index = 0;
+    else if(cal<caloriesLike.calories[1]) index = 1;
+    else index = 2;
+
+    return {
+        "like":caloriesLike.like[index],
+        "unit":caloriesLike.unit[index],
+        "num":(cal/(caloriesLike.num[index])).toFixed(1)
+    }
+
+}
+function getStepsLike(steps) {
+    var dis = steps*0.8;
+    var index = 0;
+    if(dis<stepsLike.dis[0]) index = 0;
+    else if(dis<stepsLike.dis[1]) index = 1;
+    else index = 2;
+
+    return {
+        "like":stepsLike.like[index],
+        "unit":stepsLike.unit[index],
+        "num":(dis/(stepsLike.num[index])).toFixed(1)
+    }
+}
+function getTimeLike(steps) {
+    var time = steps/0.7;
+    time = time/60;
+    var index = 0;
+    if(time<timeLike.time[0]) index = 0;
+    else if(time<timeLike.time[1]) index = 1;
+    else index = 2;
+
+    return {
+        "like":timeLike.like[index],
+        "unit":timeLike.unit[index],
+        "num":(time/(timeLike.num[index])).toFixed(1)
+    }
+}
+

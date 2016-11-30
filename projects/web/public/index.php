@@ -18,8 +18,9 @@
 | loading any of our classes later on. It feels nice to relax.
 |
 */
-
+date_default_timezone_set("Asia/Shanghai");
 require __DIR__.'/../bootstrap/autoload.php';
+
 
 /*
 |--------------------------------------------------------------------------

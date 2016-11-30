@@ -250,5 +250,5 @@
 @endsection
 @section("script")
     <script src="http://cdn.bootcss.com/jquery-confirm/2.5.1/jquery-confirm.min.js"></script>
-    <script src="common/js/setting.js"></script>
+    <script src="common/js/profile.js"></script>
 @endsection

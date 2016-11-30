@@ -5,12 +5,12 @@
     <div class="row">
         <div class="col-md-4">
             <div class="row">
-                <img src="common/img/head.jpg" alt="example-image"
-                     class="img-circle img-responsive">
+                <img id = "head" alt="example-image"
+                     class="img-circle img-responsive" src="">
             </div>
             <div class="row text-center">
                 <a href="profile">
-                    <h6>炫酷滑板鞋</h6>
+                    <h6 id="username">炫酷滑板鞋</h6>
                 </a>
             </div>
             <div class="row">
@@ -51,25 +51,20 @@
             <div class="panel panel-success">
                 <div class="panel-heading">简介</div>
                 <div class="panel-body">
-                    <strong>自我描述:</strong>我的滑板鞋时尚时尚最时尚<br>
-                    <strong>爱好特长:</strong>老子只会滑板
+                    <strong>自我描述:</strong><p id="description">我的滑板鞋时尚时尚最时尚</p>
+                    <strong>爱好特长:</strong><p id="labels">老子只会滑板</p>
                 </div>
             </div>
             <div class="panel panel-success">
-                <div class="panel-body ">
-                    今日运动量1000大卡，相当于10个面包的热量，在好友中排名第1！
-                </div>
-            </div>
-            <div class="panel panel-success">
-                <div class="panel-body">
-                    你参与南京市鼓楼区滑板活动即将开始！
+                <div  class="panel-body">
+                    今天走了<strong id="steps"></strong>步，消耗热量<strong id="calories"></strong>千卡，
+                    相当于<strong id="like"></strong>的热量，那你岂不是很棒！
                 </div>
             </div>
             <div class="panel panel-success">
                 <div class="panel-heading">全站统计</div>
                 <div class="panel-body">
                     <div id="chart"></div>
-
                 </div>
             </div>
         </div>

@@ -80,7 +80,8 @@ getCalories();
 getRank();
 getHealth();
 
-draw();
+
+// draw();
 // alert(JSON.stringify(dataHealth));
 //绘图表
 draw_line_chart('#lineChart');

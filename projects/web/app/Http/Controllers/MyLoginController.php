@@ -21,7 +21,7 @@ class MyLoginController extends Controller
     {
         $username = Input::get("username");
         $passwd = Input::get("userpasswd");
-        $user = DB::table('user')->where('user_name', $username)->where('user_passwd',$passwd)->get();
+        $user = DB::table('user_password')->where('user_name', $username)->where('passwd',$passwd)->get();
         $userValid = count($user);
         return array("userValid"=>$userValid,"username"=>$username);
     }

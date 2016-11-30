@@ -10,16 +10,17 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class ProfileController extends Controller{
-    //返回主页，如果username=null返回自己的，加上编辑信息，如果不是返回username的，不加编辑，用两个界面
-    //必做
-    public function index($username = null){
-        if ($username == null) {
-            return view('profile');
-        } else {
-            return "Hello world!   " . $username;
-        }
+    //返回某个人的数据
+    public function getProfile(){
+        $name = Input::get("name");
+        $profile = DB::table('user')
+            ->where('user_name',$name)
+            ->get();
+        return $profile;
     }
     //编辑个人信息 必做
     public function editMyProfile(){

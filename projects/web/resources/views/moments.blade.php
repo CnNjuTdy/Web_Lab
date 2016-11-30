@@ -341,4 +341,5 @@
     </div>
 @endsection
 @section("script")
+    <script src="common/js/moments.js"></script>
 @endsection
