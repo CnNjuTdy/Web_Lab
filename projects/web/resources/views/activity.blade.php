@@ -148,8 +148,8 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="join">
-                    <div class="row">
-                        <div class="col-md-4">
+                    <div class="row" id="line1">
+                        <div id="item1" class="col-md-4">
                             <div class="panel panel-success">
                                 <div class="panel-body">
                                     <div class="row">
@@ -183,7 +183,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div id="item2" class="col-md-4">
                             <div class="panel panel-success">
                                 <div class="panel-body">
                                     <div class="row">
@@ -217,111 +217,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="panel panel-success">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <img src="common/img/activity_pic/skateborder.jpg" alt="example-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin-top: 5px">
-                                        <div class="col-md-12">
-                                            <div class="tagsinput-primary">
-                                                <input class="tagsinput" data-role="tagsinput"
-                                                       value="滑板,极限" disabled/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-center"><big><em><strong>一起滑板啊！</strong></em></big></div>
-                                    <div class="text-center">发起人:<a>炫酷滑板鞋</a></div>
-                                    <div class="text-center">地点:南京市鼓楼区汉口路附近</div>
-                                    <div class="text-center">时间:10月17日16点</div>
-                                    <div class="row" style="margin-top: 7px">
-                                        <div class="col-md-12">
-                                            <small class="text-danger">还在担心你的周末？穿上滑板鞋一起嗨皮！</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-footer">
-                                    <button type="button" class="btn btn-block btn-primary">
-                                        参与活动
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="panel panel-success">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <img src="common/img/activity_pic/skateborder.jpg" alt="example-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin-top: 5px">
-                                        <div class="col-md-12">
-                                            <div class="tagsinput-primary">
-                                                <input class="tagsinput" data-role="tagsinput"
-                                                       value="滑板,极限" disabled/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-center"><big><em><strong>一起滑板啊！</strong></em></big></div>
-                                    <div class="text-center">发起人:<a>炫酷滑板鞋</a></div>
-                                    <div class="text-center">地点:南京市鼓楼区汉口路附近</div>
-                                    <div class="text-center">时间:10月17日16点</div>
-                                    <div class="row" style="margin-top: 7px">
-                                        <div class="col-md-12">
-                                            <small class="text-danger">还在担心你的周末？穿上滑板鞋一起嗨皮！</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-footer">
-                                    <button type="button" class="btn btn-block btn-primary">
-                                        参与活动
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="panel panel-success">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <img src="common/img/activity_pic/skateborder.jpg" alt="example-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin-top: 5px">
-                                        <div class="col-md-12">
-                                            <div class="tagsinput-primary">
-                                                <input class="tagsinput" data-role="tagsinput"
-                                                       value="滑板,极限" disabled/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-center"><big><em><strong>一起滑板啊！</strong></em></big></div>
-                                    <div class="text-center">发起人:<a>炫酷滑板鞋</a></div>
-                                    <div class="text-center">地点:南京市鼓楼区汉口路附近</div>
-                                    <div class="text-center">时间:10月17日16点</div>
-                                    <div class="row" style="margin-top: 7px">
-                                        <div class="col-md-12">
-                                            <small class="text-danger">还在担心你的周末？穿上滑板鞋一起嗨皮！</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-footer">
-                                    <button type="button" class="btn btn-block btn-primary">
-                                        参与活动
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
+                        <div id="item3" class="col-md-4">
                             <div class="panel panel-success">
                                 <div class="panel-body">
                                     <div class="row">
@@ -356,8 +252,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4">
+                    <div class="row" id="line2">
+                        <div id="item4" class="col-md-4">
                             <div class="panel panel-success">
                                 <div class="panel-body">
                                     <div class="row">
@@ -391,7 +287,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div id="item5" class="col-md-4">
                             <div class="panel panel-success">
                                 <div class="panel-body">
                                     <div class="row">
@@ -425,7 +321,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div id="item6" class="col-md-4">
                             <div class="panel panel-success">
                                 <div class="panel-body">
                                     <div class="row">
@@ -460,6 +356,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="tab-pane fade" id="mine">
                     <div class="row">

@@ -13,17 +13,17 @@
             <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade in active" id="sport">
                     <div class="row text-center">
-                        <div class="col-md-8">
+                        <div class="col-md-7">
                             <div class="panel panel-success">
                                 <div class="panel-heading">
-                                    今天你已经走了<strong>10000</strong>步，超额完成了目标！
+                                    今天你已经走了<strong id="stepNum">10000</strong>步，<strong id="stepDes">超额完成了目标！</strong>
                                 </div>
                                 <div class="panel-body">
                                     <div id="lineChart"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <div class="panel panel-success">
                                 <div class="panel-heading">
                                     目标完成情况
@@ -45,27 +45,27 @@
                                         <div class="col-md-4">
                                             <div class="panel panel-success">
                                                 <div class="panel-body" style="font-family: 华文仿宋,serif">
-                                                    <strong>运动距离:</strong>510公里<br/>
-                                                    相当于绕北京五环<strong style="color: #e74c3c">5圈</strong><br/>
-                                                    厉害了我的哥！
+                                                    运动距离:<strong id="dis">510公里</strong><br/>
+                                                    相当于<strong id="dis_like">绕北京五环5圈</strong>
+                                                    <div id="dis_description">厉害了我的哥！</div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="panel panel-success">
                                                 <div class="panel-body" style="font-family: 华文仿宋,serif">
-                                                    <strong>运动时间:</strong>198小时<br/>
-                                                    大概可以手抄《史记》<strong style="color: #e74c3c">1遍</strong><br/>
-                                                    人终有一死，或胖死，或，胖死^_^
+                                                    运动时间:<strong id="time">198小时</strong><br/>
+                                                    大概相当于<strong id="time_like">1遍</strong>
+                                                    <div id="time_dsecription">人终有一死，或胖死，或，胖死^_^</div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="panel panel-success">
                                                 <div class="panel-body" style="font-family: 华文仿宋,serif">
-                                                    <strong>消耗热量:</strong>40000千卡<br/>
-                                                    相当于减肥<strong style="color: #e74c3c">12斤</strong><br/>
-                                                    少年你瘦了吗？
+                                                    消耗热量:<strong id="cal">40000千卡</strong><br/>
+                                                    热量相当于<strong id="cal_like">减肥12斤</strong>
+                                                    <div id="cal_description">少年你瘦了吗？</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -75,23 +75,13 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="panel panel-success">
                                 <div class="panel-heading text-center">
                                     全网排行
                                 </div>
                                 <div class="panel-body">
                                     <div id="allBarChart"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="panel panel-success">
-                                <div class="panel-heading text-center">
-                                    好友排行
-                                </div>
-                                <div class="panel-body">
-                                    <div id="yourBarChart"></div>
                                 </div>
                             </div>
                         </div>
@@ -128,27 +118,29 @@
                         <div class="col-md-8">
                             <div class="panel panel-success">
                                 <div class="panel-heading text-center">
-                                    <strong>身高:</strong>183cm<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;体重:</strong>80kg
+                                    身高:<strong id="nowH">183cm</strong>   体重:<strong id="nowW">80kg</strong>
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-md-10 col-md-offset-1">
                                             <div class="progress progress-striped"
                                                  style="height: 30px;border-radius: 0px;margin-bottom: 0px">
-                                                <div class="progress-bar progress-bar-success"
+                                                <div id="p1" class="progress-bar progress-bar-success"
                                                      style="width: 25%;"></div>
-                                                <div class="progress-bar progress-bar-info"
+                                                <div id="p2" class="progress-bar progress-bar-info"
                                                      style="width: 25%;"></div>
-                                                <div class="progress-bar progress-bar-warning"
-                                                     style="width: 16%;"></div>
-                                                <strong>偏胖</strong>
+                                                <div id="p3" class="progress-bar progress-bar-warning"
+                                                     style="width: 25%;"></div>
+                                                <div id="p4" class="progress-bar progress-bar-danger"
+                                                     style="width: 25%;"></div>
+                                                <strong id="healthDes">偏胖</strong>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-10 col-md-offset-1">
-                                            你的理想体重是<strong style="font-size: 50px">73.7</strong>kg，还需要燃烧
-                                            <strong style="font-size: 50px">200000</strong>大卡热量，为了好身材，努力吧！
+                                            你的理想体重是<strong id="idealW" style="font-size: 40px">73.7</strong>kg，还需要<strong id="calAdd" style="font-size: 40px">
+                                                燃烧200000</strong>大卡热量。为了好身材，努力吧！
                                         </div>
                                     </div>
                                 </div>

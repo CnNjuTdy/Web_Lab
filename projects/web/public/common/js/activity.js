@@ -7,7 +7,6 @@ $(function () {
     //初始化文件控制器
     initFileInput("activity_pic", "/projects/demo1/common/img/activity_pic");
 });
-
 function confirmEdit(item) {
     var activityNameNade = item.previousElementSibling
     $.confirm({
@@ -91,11 +90,41 @@ var getMyData = (function () {
 });
 
 var draw = (function () {
+    var pagS = "<div class=\"row text-center\">" + "<ul id = \"pagination\" class =\"pagination\">";
+    var pagE = "</ul>" + "</div>";
+    var p1 = "<li class=\"active\"  value=1><a class= \"num\">1</a></li>";
+    var pages = parseInt(joinData.length);
+    if (pages == 0) {
+        //do nothing
+    } else {
+        var p = pagS + p1;
+        for (var i = 1; i <= pages; i++) {
+            p = p + getP(i + 1);
+        }
+        p = p + pagE;
+        $("#join").append($(p));
+    }
+    showActivity(1);
 
 });
 
 getMyData();
 getJoinData();
-// draw();
+draw();
 
 // alert(JSON.stringify(joinData))
+function getP(n) {
+    return "<li value=" + n + " class =\"\"><a class= \"num\" >" + n + "</a></li>";
+}
+$(".num").bind("click", function () {
+    var index = this.innerHTML;
+    showActivity(index);
+})
+function showActivity(index) {
+    // alert(index);
+    var data = joinData.slice((index - 1) * 6, index * 6);
+    for (var i = 0; i < 6; i++) {
+        $("#item1").find("img").attr("src","common/img/actvityImg/1.jpg");
+    }
+
+}

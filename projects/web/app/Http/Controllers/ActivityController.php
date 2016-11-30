@@ -16,7 +16,6 @@ class ActivityController extends Controller{
     //参加活动部分数据,完成
     public function getJoin(){
         $allDB = DB::table('activity')
-            ->where("activity_state","0")
             ->get();
         return $allDB;
     }

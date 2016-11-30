@@ -71,16 +71,20 @@ function drawChart() {
             type: 'column'
         },
         title: {
-            text: '全站步数统计'
+            text: '全站今日步数统计'
         },
         xAxis: {
             gridLineWidth: 1
         },
         yAxis: [{
             title: {
-                text: '步数/(步)'
+                text: '人数'
             }
         }],
+        tooltip: {
+            headerFormat: '<b>{series.name}</b><br>',
+            pointFormat: '{point.x:%e. %b}: {point.y:.2f} m'
+        },
         series: [{
             name: '直方图',
             type: 'column',
@@ -91,31 +95,7 @@ function drawChart() {
         }]
     });
 }
-function histogram(data, step) {
-    var histo = {},
-        x,
-        i,
-        arr = [];
-    // Group down
-    for (i = 0; i < data.length; i++) {
-        x = Math.floor(data[i] / step) * step;
-        if (!histo[x]) {
-            histo[x] = 0;
-        }
-        histo[x]++;
-    }
-    // Make the histo group into an array
-    for (x in histo) {
-        if (histo.hasOwnProperty((x))) {
-            arr.push([parseFloat(x), histo[x]]);
-        }
-    }
-    // Finally, sort the array
-    arr.sort(function (a, b) {
-        return a[0] - b[0];
-    });
-    return arr;
-}
+
 //注册
 //参加活动
 //生成活动

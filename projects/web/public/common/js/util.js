@@ -260,8 +260,7 @@ function getStepsLike(steps) {
     }
 }
 function getTimeLike(steps) {
-    var time = steps/0.7;
-    time = time/60;
+    var time = steps/100;
     var index = 0;
     if(time<timeLike.time[0]) index = 0;
     else if(time<timeLike.time[1]) index = 1;
@@ -273,4 +272,44 @@ function getTimeLike(steps) {
         "num":(time/(timeLike.num[index])).toFixed(1)
     }
 }
+function histogram(data, step) {
+    var histo = {},
+        x,
+        i,
+        arr = [];
+    // Group down
+    for (i = 0; i < data.length; i++) {
+        x = Math.floor(data[i] / step) * step;
+        if (!histo[x]) {
+            histo[x] = 0;
+        }
+        histo[x]++;
+    }
+    // Make the histo group into an array
+    for (x in histo) {
+        if (histo.hasOwnProperty((x))) {
+            arr.push([parseFloat(x), histo[x]]);
+        }
+    }
+    // Finally, sort the array
+    arr.sort(function (a, b) {
+        return a[0] - b[0];
+    });
+    return arr;
+}
+
+/**
+ * @return {string}
+ */
+function BMI(h,w) {
+    h = h/100;
+    return (w/(h*h)).toFixed(2);
+}
+function getIdealW(h) {
+    return (21*h*h/10000).toFixed(2);
+}
+function wToc(w) {
+    return (3850*w).toFixed(2);
+}
+
 

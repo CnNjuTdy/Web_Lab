@@ -17,36 +17,42 @@ class SportController extends Controller{
     public function getGoals(){
         $username = Input::get("username");
 
-        $stepDB = DB::table('sport')
-            ->select('steps','date')
-            ->where('user_name', $username)
-            ->get();
-        for($i = 0;$i<count($stepDB);$i++){
-            $stepDB[$i]->steps = intval($stepDB[$i]->steps,10);
-        }
-
         $goalDB = DB::table('user')
             ->select('user_goal')
             ->where('user_name', $username)
             ->get();
         $goalDB = intval($goalDB[0]->user_goal);
+        $stepDB = DB::table('sport')
+            ->select('steps','date')
+            ->where('user_name', $username)
+            ->get();
+        $step = [];
+        $goal = [];
+        for($i = 0;$i<count($stepDB);$i++){
+            $date = strtotime($stepDB[$i]->date);
+            $step[$i] = array($date*1000,intval($stepDB[$i]->steps));
+            $goal[$i] = array($date*1000,$goalDB);
+        }
 
         $reachDays = DB::table('sport')
             ->select('reach')
             ->where('user_name', $username)
             ->sum('reach');
-
         $allDays = DB::table('sport')
             ->select('reach')
             ->where('user_name', $username)
             ->count('reach');
+        $reachRate = sprintf("%.3f", ($reachDays/$allDays));
 
-//        $reachDays = 0;
-//        for($i = 0;$i<count($reachDB);$i++){
-//            $reachDays += intval($reachDB[$i]->reach);
-//        }
-        $reachRate = sprintf("%.2f", ($reachDays/$allDays));
-        return array("all_steps"=>$stepDB,"goal"=>$goalDB,"reachRate"=>doubleval($reachRate));
+        $todayDB = DB::table('sport')
+            ->select('steps','reach')
+            ->where('user_name', $username)
+            ->where('date',my_getDate())
+            ->get();
+        $todayDB[0]->steps = intval($todayDB[0]->steps);
+        $todayDB[0]->reach = intval($todayDB[0]->reach);
+
+        return array("all_steps"=>$step,"goal"=>$goal,"reachRate"=>doubleval($reachRate),"new_steps"=>$todayDB[0]);
     }
     //获取第二部分数据，完成
     public function getCalories(){
@@ -64,15 +70,18 @@ class SportController extends Controller{
     //获取第三部分数据，完成
     public function getRank(){
         $username = Input::get("username");
-        $stepsAllDB = DB::table('sport')
-            ->select(DB::raw('sum(steps) as all_step'))
+        $calAllDB = DB::table('sport')
+            ->select(DB::raw('sum(calories) as all_calories'))
             ->groupBy('user_name')
             ->get();
-        $stepsAll = [];
-        for($i = 0;$i<count($stepsAllDB);$i++){
-            $stepsAll[$i] = intval($stepsAllDB[$i]->all_step);
+        $calAll = [];
+        for($i = 0;$i<count($calAllDB);$i++){
+            $calAll[$i] = intval($calAllDB[$i]->all_calories);
         }
-        return $stepsAll;
+        $calMyDB = DB::table('sport')
+            ->where('user_name',$username)
+            ->sum("calories");
+        return array("all_calories"=>$calAll,"my_calories"=>intval($calMyDB));
 
     }
     //获取第四部分数据，完成
@@ -84,13 +93,20 @@ class SportController extends Controller{
             ->where('user_name', $username)
             ->where('date',my_getDate())
             ->get();
+        $healthNewDB[0]->height = floatval($healthNewDB[0]->height);
+        $healthNewDB[0]->weight = floatval($healthNewDB[0]->weight);
 
         $healthALLDB = DB::table('sport')
-            ->select('date','height','weight')
+            ->select('date','weight')
             ->where('user_name', $username)
             ->get();
+        $healthALL = [];
+        for($i=0;$i<count($healthALLDB);$i++){
+            $date = strtotime($healthALLDB[$i]->date);
+            $healthALL[$i] = array($date*1000,floatval($healthALLDB[$i]->weight));
+        }
 
-        return array("newHealth"=>$healthNewDB[0],"allHealth"=>$healthALLDB);
+        return array("newHealth"=>$healthNewDB[0],"allHealth"=>$healthALL);
     }
     //保存录入身体情况，
     public function inputHealth(){
