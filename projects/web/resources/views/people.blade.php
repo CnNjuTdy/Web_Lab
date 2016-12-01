@@ -1,4 +1,7 @@
 @extends("layouts.base")
+@section('title')
+    <title>WeSport_People</title>
+@endsection
 @section("css")
     <link href="http://cdn.bootcss.com/jquery-confirm/2.5.1/jquery-confirm.min.css" rel="stylesheet">
 @endsection
@@ -7,9 +10,9 @@
         <div class="col-md-6">
             <div class="form-group">
                 <div class="input-group">
-                    <input class="form-control" type="search" placeholder="输入昵称添加关注">
+                    <input class="form-control" type="search" placeholder="输入昵称关注" id="addName_">
                     <span class="input-group-btn">
-                                <button type="submit" class="btn">
+                                <button type="submit" class="btn" onclick="addFollowing()">
                                     添加
                                 </button>
                             </span>
@@ -19,185 +22,13 @@
                 <div class="panel-heading text-center">
                     我的关注
                 </div>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img src="common/img/head.jpg" alt="example-image"
-                                     class="img-responsive img-rounded">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="sas"><a>不会打篮球的迈克尔乔丹</a></div>
-                                <div style="margin-top: 5px"><strong>
-                                        <small><em>打篮球吗，带我一个，我发球贼6</em></small>
-                                    </strong></div>
-                            </div>
-                            <div class="col-md-2 text-danger text-center" onclick="delete_my(this)">
-                                <div><span class="fui-cross" style=""></span></div>
-                                <div style="margin-top: 5px">
-                                    <small>取消关注</small>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img src="common/img/head.jpg" alt="example-image"
-                                     class="img-responsive img-rounded">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="sas"><a>不会打篮球的迈克尔乔丹</a></div>
-                                <div style="margin-top: 5px"><strong>
-                                        <small><em>打篮球吗，带我一个，我发球贼6</em></small>
-                                    </strong></div>
-                            </div>
-                            <div class="col-md-2 text-danger text-center" onclick="delete_my(this)">
-                                <div><span class="fui-cross" style=""></span></div>
-                                <div style="margin-top: 5px">
-                                    <small>取消关注</small>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img src="common/img/head.jpg" alt="example-image"
-                                     class="img-responsive img-rounded">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="sas"><a href="#" onclick="viewOthers(this)">不会打篮球的迈克尔乔丹</a></div>
-                                <div style="margin-top: 5px"><strong>
-                                        <small><em>打篮球吗，带我一个，我发球贼6</em></small>
-                                    </strong></div>
-                            </div>
-                            <div class="col-md-2 text-danger text-center" onclick="delete_my(this)">
-                                <div><span class="fui-cross" style=""></span></div>
-                                <div style="margin-top: 5px">
-                                    <small>取消关注</small>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img src="common/img/head.jpg" alt="example-image"
-                                     class="img-responsive img-rounded">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="sas"><a>不会打篮球的迈克尔乔丹</a></div>
-                                <div style="margin-top: 5px"><strong>
-                                        <small><em>打篮球吗，带我一个，我发球贼6</em></small>
-                                    </strong></div>
-                            </div>
-                            <div class="col-md-2 text-danger text-center" onclick="delete_my(this)">
-                                <div><span class="fui-cross" style=""></span></div>
-                                <div style="margin-top: 5px">
-                                    <small>取消关注</small>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img src="common/img/head.jpg" alt="example-image"
-                                     class="img-responsive img-rounded">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="sas"><a>不会打篮球的迈克尔乔丹</a></div>
-                                <div style="margin-top: 5px"><strong>
-                                        <small><em>打篮球吗，带我一个，我发球贼6</em></small>
-                                    </strong></div>
-                            </div>
-                            <div class="col-md-2 text-danger text-center" onclick="delete_my(this)">
-                                <div><span class="fui-cross" style=""></span></div>
-                                <div style="margin-top: 5px">
-                                    <small>取消关注</small>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                <ul class="list-group" id="following"></ul>
             </div>
         </div>
         <div class="col-md-6">
             <div class="panel panel-info">
                 <div class="panel-heading text-center   ">我的粉丝</div>
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img src="common/img/head.jpg" alt="example-image"
-                                     class="img-responsive img-rounded">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="sas"><a>不会打篮球的迈克尔乔丹</a></div>
-                                <div style="margin-top: 5px"><strong>
-                                        <small><em>打篮球吗，带我一个，我发球贼6</em></small>
-                                    </strong></div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img src="common/img/head.jpg" alt="example-image"
-                                     class="img-responsive img-rounded">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="sas"><a>不会打篮球的迈克尔乔丹</a></div>
-                                <div style="margin-top: 5px"><strong>
-                                        <small><em>打篮球吗，带我一个，我发球贼6</em></small>
-                                    </strong></div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img src="common/img/head.jpg" alt="example-image"
-                                     class="img-responsive img-rounded">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="sas"><a href="#" onclick="viewOthers(this)">不会打篮球的迈克尔乔丹</a></div>
-                                <div style="margin-top: 5px"><strong>
-                                        <small><em>打篮球吗，带我一个，我发球贼6</em></small>
-                                    </strong></div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img src="common/img/head.jpg" alt="example-image"
-                                     class="img-responsive img-rounded">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="sas"><a>不会打篮球的迈克尔乔丹</a></div>
-                                <div style="margin-top: 5px"><strong>
-                                        <small><em>打篮球吗，带我一个，我发球贼6</em></small>
-                                    </strong></div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="row">
-                            <div class="col-md-2">
-                                <img src="common/img/head.jpg" alt="example-image"
-                                     class="img-responsive img-rounded">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="sas"><a>不会打篮球的迈克尔乔丹</a></div>
-                                <div style="margin-top: 5px"><strong>
-                                        <small><em>打篮球吗，带我一个，我发球贼6</em></small>
-                                    </strong></div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                <ul class="list-group" id="follower"></ul>
             </div>
         </div>
     </div>
@@ -205,4 +36,31 @@
 @section("script")
     <script src="http://cdn.bootcss.com/jquery-confirm/2.5.1/jquery-confirm.min.js"></script>
     <script src="common/js/people.js"></script>
+    <script>
+        function addFollowing() {
+            var username = getCookie("WeSport_username");
+            var addName = $("#addName_").val();
+            if(addName==""){
+                alert("请输入想要添加关注的用户名！")
+                return ;
+            }
+            $.ajax({
+                url: '/people/add',
+                type: 'post',
+                data: { username: username,addName :addName},
+                success: function (data) {
+                    if(data==0){
+                        alert("添加好友成功！");
+                        window.location.reload();
+                    }else{
+                        alert("您查询的用户不存在！");
+                    }
+                },
+                error: function (data) {
+                    console.log(JSON.stringify(data));
+                    console.log("error");
+                }
+            });
+        }
+    </script>
 @endsection

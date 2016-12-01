@@ -50,11 +50,36 @@ class PeopleController extends Controller{
 
 
     //删除好友，必做
-    public function deleteFollowing(){
+    public function del(){
+        $username = Input::get("username");
+        $delName = Input::get("addName");
 
+        DB::table('following')
+            ->where("userName","=",$username)
+            ->where("followingName","=",$delName)
+            ->delete();
+        DB::table('follower')
+            ->where("userName","=",$delName)
+            ->where("followerName","=",$username)
+            ->delete();
     }
     //添加好友 必做
-    public function addFollowing(){
+    public function add(){
+        $username = Input::get("username");
+        $addName = Input::get("addName");
 
+        $isExist = DB::table('user')
+            ->where('user_name', $addName)
+            ->get();
+        if(count($isExist)==0){
+            return -1;
+        }
+        DB::table('following')->insert(
+            ['username' => $username, "followingName" => $addName]
+        );
+        DB::table('follower')->insert(
+            ['username' => $addName, "followerName" => $username]
+        );
+        return 0;
     }
 }

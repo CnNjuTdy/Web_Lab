@@ -1,0 +1,89 @@
+.sprite {
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-Book {
+    width: 200px;
+    height: 200px;
+    background-position: -5px -5px;
+}
+
+.sprite-Calendar {
+    width: 200px;
+    height: 200px;
+    background-position: -215px -5px;
+}
+
+.sprite-Chat {
+    width: 200px;
+    height: 200px;
+    background-position: -425px -5px;
+}
+
+.sprite-Clipboard {
+    width: 200px;
+    height: 200px;
+    background-position: -5px -215px;
+}
+
+.sprite-Compas {
+    width: 224px;
+    height: 223px;
+    background-position: -215px -215px;
+}
+
+.sprite-Gift-Box {
+    width: 200px;
+    height: 200px;
+    background-position: -449px -215px;
+}
+
+.sprite-Infinity-Loop {
+    width: 200px;
+    height: 200px;
+    background-position: -5px -425px;
+}
+
+.sprite-Mail {
+    width: 193px;
+    height: 200px;
+    background-position: -449px -425px;
+}
+
+.sprite-Map {
+    width: 200px;
+    height: 200px;
+    background-position: -635px -5px;
+}
+
+.sprite-Pensils {
+    width: 200px;
+    height: 200px;
+    background-position: -659px -215px;
+}
+
+.sprite-Pocket {
+    width: 200px;
+    height: 200px;
+    background-position: -652px -425px;
+}
+
+.sprite-Retina-Ready {
+    width: 234px;
+    height: 208px;
+    background-position: -5px -635px;
+}
+
+.sprite-Toilet-Paper {
+    width: 200px;
+    height: 200px;
+    background-position: -249px -635px;
+}
+
+.sprite-Watches {
+    width: 207px;
+    height: 207px;
+    background-position: -459px -635px;
+}

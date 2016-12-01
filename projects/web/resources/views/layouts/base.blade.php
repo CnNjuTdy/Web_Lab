@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>WeSporter</title>
+    @yield("title")
     <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
 
     <!-- Loading Bootstrap -->
@@ -31,7 +31,6 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="profile"><span class="fui-user"></span></a></li>
-                        <li><a href="message"><span class="fui-info-circle"></span></a></li>
                     </ul>
                 </div>
             </nav>

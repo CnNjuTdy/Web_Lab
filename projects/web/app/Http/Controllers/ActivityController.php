@@ -33,18 +33,48 @@ class ActivityController extends Controller{
             ->get();
         return array("myJoin"=>$myJoinDB,"myOrgnize"=>$myOrgnizeDB);
     }
-
-
     //添加活动 必做
-    public function createActivity(){
+    public function create(){
+        $username = Input::get("username");
+        $name = Input::get("name");
+        $location = Input::get("location");
+        $time = Input::get("time");
+        $description = Input::get("description");
+        $labels = Input::get("labels");
+
+        $id = DB::table('activity')->insertGetId(
+            ["activity_orgnizer" => $username, "activity_name" => $name,
+                "activity_location"=>$location,"activity_time"=>$time,"activity_label"=>$labels,
+                "activity_description"=>$description,"activity_state"=>0]
+        );
+        DB::table('activity_participant')->insert(
+            ['activity_id' => $id, "participant_name" => $username]
+        );
+
+
+//        return $username.$name.$location.$time.$description.$labels;
 
     }
     //参加活动 必做
-    public function joinActivity(){
-
+    public function join(){
+        $id = Input::get("id");
+        $username = Input::get("username");
+        $allDB = DB::table('activity_participant')
+            ->where("activity_id",$id)
+            ->where("participant_name",$username)
+            ->get();
+        if(count($allDB)!=0){
+            return -1;
+        }
+        DB::table('activity_participant')->insert(
+            ['activity_id' => $id, "participant_name" => $username]
+        );
+        return 0;
     }
-    //编辑活动 选做
-    public function editActivity(){
-
+    //删除 选做
+    public function del(){
+        $id = Input::get("id");
+        DB::table('activity')->where('activity_id', '=', $id)->delete();
+        DB::table('activity_participant')->where('activity_id', '=', $id)->delete();
     }
 }

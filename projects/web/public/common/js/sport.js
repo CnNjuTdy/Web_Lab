@@ -71,7 +71,7 @@ var getHealth = (function () {
             }
         });
     });
-var draw = (function () {
+function draw() {
     $("#stepNum").html(dataGoals.new_steps.steps);
     if(dataGoals.new_steps.reach == 0){
         $("#stepDes").html("没有完成目标哦，继续加油吧！");
@@ -113,7 +113,7 @@ var draw = (function () {
     var nowW = dataHealth.newHealth.weight;
     $("#nowH").html(nowH+"cm");
     $("#nowW").html(nowW+"kg");
-    var bmi = BMI(183,60);
+    var bmi = BMI(nowH,nowW);
     var progress = 4*bmi-40;
     progress = progress.toFixed(2);
     if(progress<25){
@@ -149,7 +149,7 @@ var draw = (function () {
         $("#healthDes").html("太胖啦")
     }
     $("#idealW").html(getIdealW(nowH));
-    var wNeed = getIdealW(nowH)-nowW;
+    var wNeed = nowW-getIdealW(nowH);
     if(wNeed>0){
         $("#calAdd").html("燃烧"+wToc(wNeed));
     }else{
@@ -158,13 +158,12 @@ var draw = (function () {
 
     drawRank();
     drawWeight();
-});
+}
 
 getGoals();
 getCalories();
 getRank();
 getHealth();
-
 
 draw();
 // alert(JSON.stringify(dataHealth));
@@ -271,6 +270,7 @@ function drawWeight() {
         }]
     });
 }
+
 
 
 // draw_line_chart('#lineChart');

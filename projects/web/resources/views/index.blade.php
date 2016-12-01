@@ -1,4 +1,7 @@
 @extends('layouts.base')
+@section('title')
+    <title>WeSport_Index</title>
+@endsection
 @section('css')
 @endsection
 @section('content')

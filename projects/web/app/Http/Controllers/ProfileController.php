@@ -23,7 +23,22 @@ class ProfileController extends Controller{
         return $profile;
     }
     //编辑个人信息 必做
-    public function editMyProfile(){
+    public function editInfo(){
+        $username = Input::get("username");
+        $address = Input::get("address");
+        $goal = Input::get("goal");
+        $des = Input::get("des");
 
+        DB::table('user')
+            ->where('user_name', $username)
+            ->update(["user_goal"=>$goal,"user_address"=>$address,"user_description"=>$des]);
+    }
+    public function editPass(){
+        $username = Input::get("username");
+        $pass = Input::get("pass");
+
+        DB::table('user_password')
+            ->where('user_name', $username)
+            ->update(["passwd"=>$pass]);
     }
 }

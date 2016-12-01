@@ -16,6 +16,15 @@ var timeLike = {
     "unit":["顿","次","次"],
     "num":[30,150,10000]
 };
+var dayList=[1,4,10,30,60,100];
+var power =[
+    "同时创建最多2个活动，累计创建项目不超过3个，好友数目不超过15人",
+    "同时创建最多3个活动，累计创建项目不超过5个，好友数目不超过20人",
+    "同时创建最多4个活动，累计创建项目不超过7个，好友数目不超过25人",
+    "同时创建最多5个活动，累计创建项目不超过10个，好友数目不超过30人",
+    "同时创建最多6个活动，累计创建项目不超过13个，好友数目不超过35人",
+    "同时创建最多7个活动，累计创建项目不超过15个，好友数目不超过40人"
+];
 
 function draw_line_chart(container) {
     $(function () {
@@ -298,9 +307,6 @@ function histogram(data, step) {
     return arr;
 }
 
-/**
- * @return {string}
- */
 function BMI(h,w) {
     h = h/100;
     return (w/(h*h)).toFixed(2);
@@ -309,7 +315,19 @@ function getIdealW(h) {
     return (21*h*h/10000).toFixed(2);
 }
 function wToc(w) {
-    return (3850*w).toFixed(2);
+    return (7700*w).toFixed(2);
 }
 
+
+function getLevel(days) {
+    for(var i=0;i<dayList.length-1;i++){
+        if(days>=dayList[i]&&days<dayList[i+1]){
+            return (i+1);
+        }
+    }
+    return 6;
+}
+function getPower(level) {
+    return power[level-1];
+}
 

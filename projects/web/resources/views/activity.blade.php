@@ -1,4 +1,7 @@
 @extends('layouts.base')
+@section('title')
+    <title>WeSport_Activity</title>
+@endsection
 @section('css')
     <link href="http://cdn.bootcss.com/bootstrap-datetimepicker/4.17.43/css/bootstrap-datetimepicker.min.css"
           rel="stylesheet">
@@ -25,23 +28,19 @@
                                 <div class="col-md-5">
                                     <div class="row">
                                         <div class="form-group col-md-12">
-                                            <input type="text" value="" placeholder="活动名称"
+                                            <input id="name" type="text" value="" placeholder="活动名称"
                                                    class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-12">
-                                            <input type="text" value="" placeholder="活动地点"
+                                            <input id="loction" type="text" value="" placeholder="活动地点"
                                                    class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6 form-group">
-                                            <input id="start_time" type="text" placeholder="开始时间"
-                                                   class="form_datetime form-control">
-                                        </div>
-                                        <div class="col-md-6 form-group">
-                                            <input id="end_time" type="text" placeholder="结束时间"
+                                        <div class="col-md-12 form-group">
+                                            <input id="start_time" type="text" placeholder="时间"
                                                    class="form_datetime form-control">
                                         </div>
                                     </div>
@@ -76,7 +75,7 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="tagsinput-primary">
-                                                <input name="tagsinput" class="tagsinput" data-role="tagsinput"
+                                                <input id="labels" name="tagsinput" class="tagsinput" data-role="tagsinput"
                                                        value="跑步,半马"/>
                                             </div>
                                         </div>
@@ -96,7 +95,7 @@
                                     </div>
                                     <div class="row" style="margin-top: 20px">
                                         <div class="form-group col-md-12">
-                                            <textarea placeholder="活动描述" class="form-control"
+                                            <textarea id="description" placeholder="活动描述" class="form-control"
                                                       style="resize: none;height:200px"></textarea>
                                         </div>
                                     </div>
@@ -139,7 +138,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-1">
-                                    <button id="addActivity" type="button" class="btn btn-block btn-primary">
+                                    <button id="addActivity" type="button" class="btn btn-block btn-primary" onclick="createActivity()">
                                         发起活动
                                     </button>
                                 </div>
@@ -147,217 +146,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="join">
-                    <div class="row" id="line1">
-                        <div id="item1" class="col-md-4">
-                            <div class="panel panel-success">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <img src="common/img/activity_pic/skateborder.jpg" alt="example-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin-top: 5px">
-                                        <div class="col-md-12">
-                                            <div class="tagsinput-primary">
-                                                <input class="tagsinput" data-role="tagsinput"
-                                                       value="滑板,极限" disabled/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-center"><big><em><strong>一起滑板啊！</strong></em></big></div>
-                                    <div class="text-center">发起人:<a>炫酷滑板鞋</a></div>
-                                    <div class="text-center">地点:南京市鼓楼区汉口路附近</div>
-                                    <div class="text-center">时间:10月17日16点</div>
-                                    <div class="row" style="margin-top: 7px">
-                                        <div class="col-md-12">
-                                            <small class="text-danger">还在担心你的周末？穿上滑板鞋一起嗨皮！</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-footer">
-                                    <button type="button" class="btn btn-block btn-primary">
-                                        参与活动
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="item2" class="col-md-4">
-                            <div class="panel panel-success">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <img src="common/img/activity_pic/skateborder.jpg" alt="example-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin-top: 5px">
-                                        <div class="col-md-12">
-                                            <div class="tagsinput-primary">
-                                                <input class="tagsinput" data-role="tagsinput"
-                                                       value="滑板,极限" disabled/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-center"><big><em><strong>一起滑板啊！</strong></em></big></div>
-                                    <div class="text-center">发起人:<a>炫酷滑板鞋</a></div>
-                                    <div class="text-center">地点:南京市鼓楼区汉口路附近</div>
-                                    <div class="text-center">时间:10月17日16点</div>
-                                    <div class="row" style="margin-top: 7px">
-                                        <div class="col-md-12">
-                                            <small class="text-danger">还在担心你的周末？穿上滑板鞋一起嗨皮！</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-footer">
-                                    <button type="button" class="btn btn-block btn-primary">
-                                        参与活动
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="item3" class="col-md-4">
-                            <div class="panel panel-success">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <img src="common/img/activity_pic/skateborder.jpg" alt="example-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin-top: 5px">
-                                        <div class="col-md-12">
-                                            <div class="tagsinput-primary">
-                                                <input class="tagsinput" data-role="tagsinput"
-                                                       value="滑板,极限" disabled/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-center"><big><em><strong>一起滑板啊！</strong></em></big></div>
-                                    <div class="text-center">发起人:<a>炫酷滑板鞋</a></div>
-                                    <div class="text-center">地点:南京市鼓楼区汉口路附近</div>
-                                    <div class="text-center">时间:10月17日16点</div>
-                                    <div class="row" style="margin-top: 7px">
-                                        <div class="col-md-12">
-                                            <small class="text-danger">还在担心你的周末？穿上滑板鞋一起嗨皮！</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-footer">
-                                    <button type="button" class="btn btn-block btn-primary">
-                                        参与活动
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" id="line2">
-                        <div id="item4" class="col-md-4">
-                            <div class="panel panel-success">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <img src="common/img/activity_pic/skateborder.jpg" alt="example-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin-top: 5px">
-                                        <div class="col-md-12">
-                                            <div class="tagsinput-primary">
-                                                <input class="tagsinput" data-role="tagsinput"
-                                                       value="滑板,极限" disabled/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-center"><big><em><strong>一起滑板啊！</strong></em></big></div>
-                                    <div class="text-center">发起人:<a>炫酷滑板鞋</a></div>
-                                    <div class="text-center">地点:南京市鼓楼区汉口路附近</div>
-                                    <div class="text-center">时间:10月17日16点</div>
-                                    <div class="row" style="margin-top: 7px">
-                                        <div class="col-md-12">
-                                            <small class="text-danger">还在担心你的周末？穿上滑板鞋一起嗨皮！</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-footer">
-                                    <button type="button" class="btn btn-block btn-primary">
-                                        参与活动
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="item5" class="col-md-4">
-                            <div class="panel panel-success">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <img src="common/img/activity_pic/skateborder.jpg" alt="example-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin-top: 5px">
-                                        <div class="col-md-12">
-                                            <div class="tagsinput-primary">
-                                                <input class="tagsinput" data-role="tagsinput"
-                                                       value="滑板,极限" disabled/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-center"><big><em><strong>一起滑板啊！</strong></em></big></div>
-                                    <div class="text-center">发起人:<a>炫酷滑板鞋</a></div>
-                                    <div class="text-center">地点:南京市鼓楼区汉口路附近</div>
-                                    <div class="text-center">时间:10月17日16点</div>
-                                    <div class="row" style="margin-top: 7px">
-                                        <div class="col-md-12">
-                                            <small class="text-danger">还在担心你的周末？穿上滑板鞋一起嗨皮！</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-footer">
-                                    <button type="button" class="btn btn-block btn-primary">
-                                        参与活动
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="item6" class="col-md-4">
-                            <div class="panel panel-success">
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <img src="common/img/activity_pic/skateborder.jpg" alt="example-image"
-                                                 class="img-responsive">
-                                        </div>
-                                    </div>
-                                    <div class="row" style="margin-top: 5px">
-                                        <div class="col-md-12">
-                                            <div class="tagsinput-primary">
-                                                <input class="tagsinput" data-role="tagsinput"
-                                                       value="滑板,极限" disabled/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="text-center"><big><em><strong>一起滑板啊！</strong></em></big></div>
-                                    <div class="text-center">发起人:<a>炫酷滑板鞋</a></div>
-                                    <div class="text-center">地点:南京市鼓楼区汉口路附近</div>
-                                    <div class="text-center">时间:10月17日16点</div>
-                                    <div class="row" style="margin-top: 7px">
-                                        <div class="col-md-12">
-                                            <small class="text-danger">还在担心你的周末？穿上滑板鞋一起嗨皮！</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="panel-footer">
-                                    <button type="button" class="btn btn-block btn-primary">
-                                        参与活动
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+                <div class="tab-pane fade" id="join"></div>
                 <div class="tab-pane fade" id="mine">
                     <div class="row">
                         <div class="col-md-12">
@@ -373,27 +162,7 @@
                                         <th class="text-center">活动状态</th>
                                     </tr>
                                     </thead>
-                                    <tbody class="text-center">
-                                    <tr>
-                                        <td>南京马拉松</td>
-                                        <td>南京市马拉松比赛</td>
-                                        <td>已结束</td>
-                                    </tr>
-                                    <tr>
-                                        <td>第一届滑板大赛</td>
-                                        <td>南京市鼓楼区第一届滑板大赛</td>
-                                        <td>已结束</td>
-                                    </tr>
-                                    <tr>
-                                        <td>第二届滑板大赛</td>
-                                        <td>南京市鼓楼区第二届滑板大赛</td>
-                                        <td>正在进行中</td>
-                                    </tr>
-                                    <tr>
-                                        <td>第三届滑板大赛</td>
-                                        <td>南京市鼓楼区第三届滑板大赛</td>
-                                        <td>正在进行中</td>
-                                    </tr>
+                                    <tbody class="text-center" id="my_join">
                                     </tbody>
                                 </table>
                             </div>
@@ -413,23 +182,7 @@
                                         <th class="text-center">操作</th>
                                     </tr>
                                     </thead>
-                                    <tbody class="text-center">
-                                    <tr>
-                                        <td>第一届滑板大赛</td>
-                                        <td><strong>已</strong>结束/<strong>已</strong>录入名次</td>
-                                        <td><a href="javascript:void(0);"><em
-                                                        style="text-decoration: underline">编辑活动</em></a>
-                                            <a href="javascript:void(0);"><em style="text-decoration: underline">详情</em></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>第二届滑板大赛</td>
-                                        <td><strong>未</strong>结束/<strong>未</strong>录入名次</td>
-                                        <td><a href="javascript:void(0);"><em
-                                                        style="text-decoration: underline">编辑活动</em></a>
-                                            <a href="javascript:void(0);"><em style="text-decoration: underline">详情</em></a>
-                                        </td>
-                                    </tr>
+                                    <tbody class="text-center" id="my_org">
 
                                     </tbody>
                                 </table>
@@ -453,4 +206,49 @@
     <script src="http://cdn.bootcss.com/jquery-confirm/2.5.1/jquery-confirm.min.js"></script>
     <!--自制-->
     <script src="common/js/activity.js"></script>
+
+    <script>
+        function createActivity() {
+            var name = $("#name").val();
+            var location = $("#loction").val();
+            var time = $("#start_time").val();
+            var description = $("#description").val();
+            var labels = $("#labels").val();
+            if(name==""){
+                alert("活动名不能为空！")
+                return ;
+            }else if(location==""){
+                alert("活动地点不能为空！")
+                return ;
+            }else if(time==""){
+                alert("活动时间不能为空！")
+                return ;
+            }else if(description==""){
+                alert("活动描述不能为空！")
+                return ;
+            }else if(labels==""){
+                alert("活动标签不能为空！")
+            }
+            var username = getCookie("WeSport_username");
+            $.ajax({
+                url: '/activity/create_activity',
+                type: 'post',
+                data: { username: username,name:name,
+                        location:location,time:time,
+                        description:description,labels:labels},
+                success: function (data) {
+//                    getJoinData();
+//                    getMyData();
+//                    draw();
+                    alert("创建活动成功！");
+                    window.location.reload();
+                },
+                error: function (data) {
+                    console.log(JSON.stringify(data));
+                    console.log("error");
+                }
+            });
+
+        }
+    </script>
 @endsection

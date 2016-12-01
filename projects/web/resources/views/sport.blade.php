@@ -1,4 +1,7 @@
 @extends("layouts.base")
+@section('title')
+    <title>WeSport_Sport</title>
+@endsection
 @section("css")
 @endsection
 @section("content")
@@ -170,7 +173,6 @@
     <script>
         var date = get_date();
         document.getElementById("dateStr").innerHTML =date;
-
         function enterHealth() {
             var height = $("input[id=height]").val();
             var weight = $("input[id=weight]").val();
@@ -195,6 +197,8 @@
                 data: {username: username,height:height,weight:weight},
                 success: function (data) {
                     //界面变化
+                    getHealth();
+                    draw();
                     alert("录入成功！")
                 },
                 error: function (data) {
